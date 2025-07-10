@@ -26,7 +26,7 @@ func Echo(w http.ResponseWriter, r *http.Request){
 			return 
 	}
 	
-	response := EchoResponse{echo: echoReq.message}
+	response := map[string]string{"echo": echoReq.message}
 	fmt.Println(response)
 	w.Header().Set("Content-Type","application/json")
 	json.NewEncoder(w).Encode(response)
