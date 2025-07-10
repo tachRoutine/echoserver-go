@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -26,7 +27,8 @@ func Echo(w http.ResponseWriter, r *http.Request){
 	}
 	
 	response := EchoResponse{echo: echoReq.message}
-	w.Header().Set("Content-Type","json")
+	fmt.Println(response)
+	w.Header().Set("Content-Type","application/json")
 	json.NewEncoder(w).Encode(response)
 	
 }
